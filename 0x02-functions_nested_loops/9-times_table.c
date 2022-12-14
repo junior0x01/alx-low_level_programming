@@ -19,7 +19,7 @@ if (column == 0)
 _putchar('0');
 }
 else if (product < 10)
-_putchar(',')
+_putchar(',');
 {
 _putchar(' ');
 _putchar(' ');
