@@ -1,36 +1,34 @@
 #include "main.h"
-#include <string.h>
 
 /**
- * _strstr -  searches a string for any of a set of bytes.
+ * _strstr - locate a substring
+ * @haystack: the string to search
+ * @needle: the string to find
  *
- * @haystack: pointer to string
- * @needle: substring to be located
- *
- * Return: a pointer to the byte in string
+ * Return: char value
  */
-
 char *_strstr(char *haystack, char *needle)
 {
-	char *or_haystack = haystack, *or_needle = needle;
+	int a = 0, b = 0;
 
-	while (*haystack)
+	while (haystack[a])
 	{
-		while (*needle)
+		while (needle[b])
 		{
-			if (*haystack++ != *needle++)
+			if (haystack[a + b] != needle[b])
 			{
 				break;
 			}
+			b++;
 		}
-		if (!*needle)
+
+		if (needle[b] == '\0')
 		{
-			return (or_haystack);
+			return (haystack + a);
 		}
-		needle = or_needle;
-		or_haystack++;
-		haystack = or_haystack;
+
+		a++;
 	}
-	return (0);
+	return ('\0');
 }
 
